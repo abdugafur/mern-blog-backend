@@ -82,7 +82,7 @@ app.patch(
   handleValidationErrors,
   updatePost
 );
-
+app.get("/", (req, res) => res.send("Welcome"));
 app.listen(process.env.PORT || 5555, (err) => {
   if (err) {
     return console.log(err);
