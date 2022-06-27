@@ -17,12 +17,16 @@ import {
 } from "./controllers/PostController.js";
 import multer from "multer";
 import fs from "fs";
+import dotenv from "dotenv";
+dotenv.config();
 
-const db =
-  "mongodb+srv://abdugafur:abdugafur7777@cluster0.tpnf7zw.mongodb.net/blog?retryWrites=true&w=majority";
+const URI = process.env.MONGODB_URI;
 
 mongoose
-  .connect(db)
+  .connect(URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => console.log("DB ok"))
   .catch((err) => console.log("Error", err));
 
